@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Serialization;
 
 namespace ChallengesWithTestsMark8
 {
@@ -8,14 +9,7 @@ namespace ChallengesWithTestsMark8
     {
         public bool CharacterIsALetter(char c)
         {
-            if(Char.IsLetter(c))
-            {
-                return true;
-            } else
-            {
-                return false;
-            }
-
+            return Char.IsLetter(c);
         }
 
         public bool CountOfElementsIsEven(string[] vals)
@@ -43,7 +37,17 @@ namespace ChallengesWithTestsMark8
 
         public double SumOfMinAndMax(IEnumerable<double> numbers)
         {
-            throw new NotImplementedException();
+            if (numbers == null)
+            {
+                return 0;
+            }
+
+            if (numbers.Count() == 0)
+            {
+                return 0;
+            }
+
+            return numbers.Min() + numbers.Max();
         }
 
         public int GetLengthOfShortestString(string str1, string str2)
