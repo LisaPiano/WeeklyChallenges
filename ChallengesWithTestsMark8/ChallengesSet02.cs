@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ChallengesWithTestsMark8
 {
@@ -7,22 +8,37 @@ namespace ChallengesWithTestsMark8
     {
         public bool CharacterIsALetter(char c)
         {
-            throw new NotImplementedException();
+            if(Char.IsLetter(c))
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
+
         }
 
         public bool CountOfElementsIsEven(string[] vals)
         {
-            throw new NotImplementedException();
+            int total = vals.Count();
+            if (total % 2 == 0)
+            {
+                return true;
+            }
+            return false;
         }
 
         public bool IsNumberEven(int number)
         {
-            throw new NotImplementedException();
+           bool answer = (number %2 == 0) ? true : false;    
+            return answer;
         }
 
         public bool IsNumberOdd(int num)
         {
-            throw new NotImplementedException();
+           bool answer = (num %2 == 0) ? false : true;
+            return answer;
+
         }
 
         public double SumOfMinAndMax(IEnumerable<double> numbers)
