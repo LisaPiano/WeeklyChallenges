@@ -73,8 +73,8 @@ namespace ChallengesWithTestsMark8
         {
             int answer = 0;
             if (numbers == null)
-            { 
-            return 0; 
+            {
+                return 0;
             }
             if (numbers.Length == 0)
             {
@@ -82,23 +82,24 @@ namespace ChallengesWithTestsMark8
             }
             for (var i = 0; i < numbers.Length; i++)
             {
-                answer = answer + numbers[i];
+                answer += numbers[i];
             }
-            
+
             return answer;
         }
 
         public int SumEvens(int[] numbers)
-        {   if (numbers == null)
+        {
+            if (numbers == null)
             {
                 return 0;
             }
-            int answer =0;
+            int answer = 0;
             for (var i = 0; i < numbers.Length; i++)
             {
                 if (numbers[i] % 2 == 0)
                 {
-                    answer = answer + numbers[i];
+                    answer += numbers[i];
                 }
             }
             return answer;
@@ -112,21 +113,29 @@ namespace ChallengesWithTestsMark8
             }
             int sum = 0;
             for (var i = 0; i < numbers.Count; i++)
-            { 
-                sum = sum + numbers[i];
+            {
+                sum += numbers[i];
             }
-            if ((sum % 2 == 1) || (sum %2 == -1))
+            if ((sum % 2 == 1) || (sum % 2 == -1))
             {
                 return true;
             }
-            else {
+            else
+            {
                 return false;
-                }
+            }
         }
 
         public long CountOfPositiveOddsBelowNumber(long number)
         {
-            throw new NotImplementedException();
+            if (number <= 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return number / 2;
+            }
         }
     }
 }
