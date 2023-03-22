@@ -54,15 +54,7 @@ namespace ChallengesWithTestsMark8
                 }
             }
 
-            if (isLower == true && isUpper == true && isNumber == true)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
+           return isLower && isUpper && isNumber;
         }
 
         public char GetFirstLetterOfString(string val)
