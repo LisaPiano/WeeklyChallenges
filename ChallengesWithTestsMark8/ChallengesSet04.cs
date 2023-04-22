@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -99,23 +101,29 @@ namespace ChallengesWithTestsMark8
                 return answer;
             }
             return 0;
-
         }
+
 
         public int Factorial(int number)
         {
-            var total = 1;
+            //if (number <= 0)
+            //     {
+            //    return 1;
+            //    }
+            //return number * Factorial(number - 1);
+
+            if (number < 0)
+                //I don't understand the "throw"
             {
-                for (int i = number; number >= 1; i--)
-                {
-                    total *= i;
-                }
-                return total;
+                throw new ArgumentOutOfRangeException();
             }
-       
+            var result = 1;
+            for (var i = number; i >= 1; i--)
+            {
+                result = result * i;
+            }
+            return result;
+           
+            }
         }
     }
-}
-
-    
-
