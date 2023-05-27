@@ -24,16 +24,37 @@ namespace ChallengesWithTestsMark8
         public void ChangeNamesOfBusinessesWithNoRevenueTo_CLOSED(Business[] businesses)
         {
             throw new NotImplementedException();
+
         }
 
         public bool IsAscendingOrder(int[] numbers)
         {
-            throw new NotImplementedException();
+            for (var i = 1; i < numbers.Length; i++)
+            {
+                if (numbers[i] < numbers[i - 1])
+
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public int SumElementsThatFollowAnEven(int[] numbers)
         {
-            throw new NotImplementedException();
+            if (numbers == null || numbers.Length == 0)
+            {
+                return 0;
+            }
+            int sum = 0;
+            for (int i = 1; i < numbers.Length; i++)
+            {
+                if (numbers[i - 1] % 2 == 0)
+                {
+                    sum += numbers[i];
+                }
+             }
+            return sum;
         }
 
         public string TurnWordsIntoSentence(string[] words)
