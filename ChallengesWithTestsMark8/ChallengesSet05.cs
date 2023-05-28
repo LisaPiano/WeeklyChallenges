@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 
 namespace ChallengesWithTestsMark8
 {
@@ -23,7 +24,7 @@ namespace ChallengesWithTestsMark8
 
         public void ChangeNamesOfBusinessesWithNoRevenueTo_CLOSED(Business[] businesses)
         {
-            for (int i = 0; i < businesses.Length; i++) 
+            for (int i = 0; i < businesses.Length; i++)
             {
                 if (businesses[i].TotalRevenue == 0)
                 {
@@ -32,7 +33,6 @@ namespace ChallengesWithTestsMark8
             }
 
         }
-
 
         public bool IsAscendingOrder(int[] numbers)
         {
@@ -64,7 +64,7 @@ namespace ChallengesWithTestsMark8
                 {
                     sum += numbers[i];
                 }
-             }
+            }
             return sum;
         }
 
@@ -75,17 +75,17 @@ namespace ChallengesWithTestsMark8
                 return "";
             }
             string sentence = "";
-            foreach (string word in words) 
+            foreach (string word in words)
             {
                 if (word.Trim().Length > 0)
-                { 
-                    sentence += word.Trim() + " " ;
+                {
+                    sentence += word.Trim() + " ";
                 }
                 if (sentence.Length == 0)
                 {
                     return "";
                 }
-               
+
             }
             sentence = sentence.Trim();
             sentence += ".";
@@ -94,12 +94,36 @@ namespace ChallengesWithTestsMark8
 
         public double[] GetEveryFourthElement(List<double> elements)
         {
-            throw new NotImplementedException();
+            if (elements == null || elements.Count == 0)
+            {
+                return new double[0];
+            }
+            List<double> result = new List<double>();
+            for (int i = 3; i < elements.Count; i += 4)
+            {
+                result.Add(elements[i]);
+            }
+            return result.ToArray();
         }
 
         public bool TwoDifferentElementsInArrayCanSumToTargetNumber(int[] nums, int targetNumber)
         {
-            throw new NotImplementedException();
-        }
-    }
-}
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                for (int j = i + 1]; j < nums.Length; j++)
+                {
+                    if (nums[i] + nums[j] == targetNumber)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }//end method
+
+
+
+    }//end public class
+
+}//end namespace
