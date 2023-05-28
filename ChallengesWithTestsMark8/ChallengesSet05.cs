@@ -23,12 +23,23 @@ namespace ChallengesWithTestsMark8
 
         public void ChangeNamesOfBusinessesWithNoRevenueTo_CLOSED(Business[] businesses)
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < businesses.Length; i++) 
+            {
+                if (businesses[i].TotalRevenue == 0)
+                {
+                    businesses[i].Name = "CLOSED";
+                }
+            }
 
         }
 
+
         public bool IsAscendingOrder(int[] numbers)
         {
+            if (numbers == null || numbers.Length == 0)
+            {
+                return false;
+            }
             for (var i = 1; i < numbers.Length; i++)
             {
                 if (numbers[i] < numbers[i - 1])
@@ -59,7 +70,26 @@ namespace ChallengesWithTestsMark8
 
         public string TurnWordsIntoSentence(string[] words)
         {
-            throw new NotImplementedException();
+            if (words == null || words.Length == 0)
+            {
+                return "";
+            }
+            string sentence = "";
+            foreach (string word in words) 
+            {
+                if (word.Trim().Length > 0)
+                { 
+                    sentence += word.Trim() + " " ;
+                }
+                if (sentence.Length == 0)
+                {
+                    return "";
+                }
+               
+            }
+            sentence = sentence.Trim();
+            sentence += ".";
+            return sentence;
         }
 
         public double[] GetEveryFourthElement(List<double> elements)
