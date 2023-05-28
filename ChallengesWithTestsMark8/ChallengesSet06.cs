@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Principal;
 
 namespace ChallengesWithTestsMark8
 {
@@ -7,8 +9,30 @@ namespace ChallengesWithTestsMark8
     {
         public bool CollectionContainsWord(IEnumerable<string> words, string word, bool ignoreCase)
         {
-            throw new NotImplementedException();
+            bool containsWord = false;
+            if (string.Equals(words, null) || words.Contains(null)) 
+            {
+                return false;
+            }
+
+            if (ignoreCase == true)
+            {
+                word = word.ToLower();
+                List<string> low = words.Select(x => x.ToLower()).ToList();
+                containsWord = low.Contains(word);
+            }
+            if (ignoreCase == false)
+            {
+                containsWord = words.Contains(word);
+            }
+            {
+                return containsWord;
+            }
         }
+
+
+
+
 
         public bool IsPrimeNumber(int num)
         {
@@ -20,6 +44,10 @@ namespace ChallengesWithTestsMark8
             throw new NotImplementedException();
         }
 
+
+
+
+
         public int MaxConsecutiveCount(int[] numbers)
         {
             throw new NotImplementedException();
@@ -29,5 +57,9 @@ namespace ChallengesWithTestsMark8
         {
             throw new NotImplementedException();
         }
-    }
+
+
+
+
 }
+    }
