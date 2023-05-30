@@ -10,7 +10,7 @@ namespace ChallengesWithTestsMark8
         public bool CollectionContainsWord(IEnumerable<string> words, string word, bool ignoreCase)
         {
             bool containsWord = false;
-            if (string.Equals(words, null) || words.Contains(null)) 
+            if (string.Equals(words, null) || words.Contains(null))
             {
                 return false;
             }
@@ -49,7 +49,7 @@ namespace ChallengesWithTestsMark8
                         return false;
                     }
                 }
-        }
+            }
             return true;
         }
 
@@ -72,7 +72,7 @@ namespace ChallengesWithTestsMark8
                 {
                     if (str[i] == str[j])
                     {
-                        count ++;
+                        count++;
                         if (count > 1)
                         {
                             break;//exit the inner loop if count is repeated
@@ -80,7 +80,7 @@ namespace ChallengesWithTestsMark8
                     }
                 }//end j loop
                 if (count == 1)
-                { 
+                {
                     location = i;// the location will update the index if the character is unique
                 }
             } //end i loop
@@ -93,8 +93,33 @@ namespace ChallengesWithTestsMark8
 
         public int MaxConsecutiveCount(int[] numbers)
         {
-            throw new NotImplementedException();
-        }
+            int count = 0;// This is the int that we will use to compare each time a char is repeated, is it more or less than the 
+            //previous time? If it is more, then it will be updated with that number
+
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                int finalCompare = 1; //1 is the number of times the char initially appears
+                for (int j = i + 1; j < numbers.Length; j++)
+                {
+                    if (numbers[i] != numbers[j])
+                    {
+                        break; // exit if the char is not repeated at all, and try the next char in the array
+                    }
+                    else
+                    {
+                        finalCompare++; //increment every time the char is repeated
+                    }
+                }//end if statement in j
+
+
+                if (finalCompare > count)
+                {
+                    count = finalCompare;
+                }
+            }//end for i
+            return count;
+        }// end method
+    
 
         public double[] GetEveryNthElement(List<double> elements, int n)
         {
@@ -104,5 +129,5 @@ namespace ChallengesWithTestsMark8
 
 
 
-}
-    }
+}//end class
+    }//end namespace
