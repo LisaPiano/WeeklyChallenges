@@ -123,11 +123,22 @@ namespace ChallengesWithTestsMark8
 
         public double[] GetEveryNthElement(List<double> elements, int n)
         {
-            throw new NotImplementedException();
-        }
+            List<double>lsResult = new List<double>();
 
+            if ((elements == null) || (n <= 0) || (n > elements.Count))
+                    {
+                        return lsResult.ToArray();
+                    }
+            
+            for (int i = n - 1; i < elements.Count; i += n)
+            {
+                lsResult.Add(elements[i]);
+                
+            }
+           return lsResult.ToArray();   
+           
+        }//end method
 
-
-
+       //=======================================================================================
 }//end class
     }//end namespace
